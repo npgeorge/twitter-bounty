@@ -13,5 +13,9 @@ my_routes = Blueprint("my_routes", __name__)
 # above our normal looking function, it specifies a route or url path
 # each def needs to be unique for this to work
 @my_routes.route("/")
-def index():
+def homepage():
     return render_template("homepage.html")
+
+@my_routes.route("/index")
+def index():
+    return render_template("index.html")
