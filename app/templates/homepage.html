@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icosa</title>
+</head>
+<body>
+
+    <h2> Welcome to Icosa</h2>
+    <p>Use this web tool to build and maintain a database of your followers and send mass DM's.</p>
+
+    <!-- form elements are magical -->
+    <!-- has the ability to send a POST request-->
+
+    <!-- The Submit button tells the action to send a POST request to the url-->
+    <form action="/users/create" method="POST">
+        <label>Enter your Twitter API Key: </label>
+        <input type="text" name="name" placeholder="API Key here">
+        <br/>
+        <br/>
+        <label>Enter the message you'd like to send to followers here:</label>
+        <input type="text" name="tweet" placeholder="say something">
+        <br/>
+        <br/>
+        <button>Submit</button>
+    </form>
+
+</body>
+</html>
