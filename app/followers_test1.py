@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import tweepy
 import pandas as pd
 import requests
+import time
 
 load_dotenv()
 
@@ -29,19 +30,39 @@ api = twitter_api_client()
 # define the users screen name (Eventually API Key)
 at_name="nickpgeorge"
 
-# specify number of items (followers) to return, MAX 180 every 15 mins for free users
-# set to two for testing purposes
-items = 2
+def followers_df():
+    # specify number of items (followers) to return, MAX 180 every 15 mins for free users
+    # set to two for testing purposes
+    items = 2
 
-# collect followers
-followers = tweepy.Cursor(api.followers, screen_name=at_name).items(items)
+    # collect followers
+    followers = tweepy.Cursor(api.followers, screen_name=at_name).items(items)
 
-# Collect followers list
-followers_list = [follower.screen_name for follower in followers]
+    # Collect followers list
+    followers_list = [follower.screen_name for follower in followers]
 
-df = pd.DataFrame(followers_list)
+    # build followers dataframe
+    df = pd.DataFrame(followers_list)
 
-print(df)
+    # print
+    return df
+
+
+# gathering more user info, print statements working, place in dataframes
+def sleeper():
+    followers = tweepy.Cursor(api.followers, screen_name=at_name, count=200).items()
+    for follower in range(0,200):
+        try:
+            follower = next(followers)
+            print(follower.screen_name)
+            print(follower.name)
+        except tweepy.TweepError:
+            print("Tweepy has hit its rate limit for now")
+            # time function
+            time.sleep(60*15)
+            # run function again
+            next(followers)
+    return followers
 
 
 

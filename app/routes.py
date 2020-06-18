@@ -16,6 +16,7 @@ my_routes = Blueprint("my_routes", __name__)
 def homepage():
     return render_template("homepage.html")
 
+# landing page route
 @my_routes.route("/index")
 def index():
     return render_template("index.html")
