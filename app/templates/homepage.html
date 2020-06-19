@@ -7,14 +7,14 @@
 </head>
 <body>
 
-    <h2> Welcome to Icosa</h2>
+    <h2> Welcome to Twitter DM's</h2>
     <p>Use this web tool to build and maintain a database of your followers and send mass DM's.</p>
 
     <!-- form elements are magical -->
     <!-- has the ability to send a POST request-->
 
     <!-- The Submit button tells the action to send a POST request to the url-->
-    <form action="/users/create" method="POST">
+    <form action="/keys" method="POST">
         <label>Enter your Twitter API Key: </label>
         <input type="text" name="name" placeholder="API Key">
         <br/>
@@ -27,11 +27,14 @@
         <label>Enter your Twitter API Token Secret: </label>
         <input type="text" name="name" placeholder="Token Secret">
         <br/>
-        <label>Enter the message you'd like to send to followers here:</label>
-        <input type="text" name="tweet" placeholder="say something">
-        <br/>
-        <br/>
         <button>Submit</button>
+    </form>
+    <form action="/keys" method="POST">
+    <br/>
+    <label>Enter the message you'd like to send to followers here:</label>
+    <input type="text" name="tweet" placeholder="say something">
+    <br/>
+    <button>Submit</button>
     </form>
 
 </body>

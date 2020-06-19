@@ -28,55 +28,50 @@ def twitter_api_client():
 api = twitter_api_client()
 
 # define the users screen name (Eventually API Key)
-at_name="nickpgeorge"
+screen_name="nickpgeorge"
 
 def followers_df():
-    # specify number of items (followers) to return, MAX 180 every 15 mins for free users
-    # set to two for testing purposes
-    items = 2
+    # items is how many followers you want in your df
+    items = 3
 
-    # collect followers
-    followers = tweepy.Cursor(api.followers, screen_name=at_name).items(items)
+    # initiate lists and append
+    follower_list = []
+    for follower in tweepy.Cursor(api.followers, screen_name=screen_name).items(items):
+        follower = follower.screen_name
+        follower_list.append(follower)
 
-    # Collect followers list
-    followers_list = [follower.screen_name for follower in followers]
+    ids_list = []
+    for ids in tweepy.Cursor(api.followers_ids, screen_name=screen_name).items(items):
+        ids_list.append(ids)
+    
+    name_list = []
+    for name in tweepy.Cursor(api.followers, screen_name=screen_name).items(items):
+        name = name.name
+        name_list.append(name)
+    
+    # initiate dataframe
+    df = pd.DataFrame(follower_list)
 
-    # build followers dataframe
-    df = pd.DataFrame(followers_list)
+    # add columns
+    df['Id'] = ids_list
+    df['Name'] = name_list
+    df['DM_Sent?'] = 'No'
 
     # print
     return df
 
+# Send a DM!
+def dm():
+    # type your message
+    text = "This is a test."
 
-# gathering more user info, print statements working, place in dataframes
-def sleeper():
-    followers = tweepy.Cursor(api.followers, screen_name=at_name, count=200).items()
-    for follower in range(0,200):
-        try:
-            follower = next(followers)
-            print(follower.screen_name)
-            print(follower.name)
-        except tweepy.TweepError:
-            print("Tweepy has hit its rate limit for now")
-            # time function
-            time.sleep(60*15)
-            # run function again
-            next(followers)
-    return followers
+    # my fake accounts
+    send_text_list = [1126704586893316096, 1039712141283139584]
 
-
+    for user_ids in send_text_list:
+        # time function, 1 message every 87 seconds is ~1000 per day, twitter limit
+        # (60 secs * 60 mins * 24 hours) / 1000 messages = 86.7 seconds
+        time.sleep(86.7)
+        api.send_direct_message(user_ids, text)
 
 #if __name__ == "__main__":
-#
-#    # this is the twitter api client
-#    client = twitter_api_client()
-#
-#    print("--------------")
-#    my_tweets = client.user_timeline("nickpgeorge", tweet_mode="extended")
-#    for tweet in my_tweets:
-#        print(type(tweet), tweet.full_text)
-#
-#    print("--------------")
-#    my_followers = client.followers("nickpgeorge")
-#    df = pd.DataFrame(my_followers)
-#    print(df)
