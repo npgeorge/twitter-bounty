@@ -30,7 +30,7 @@ api = twitter_api_client()
 # define the users screen name (Eventually API Key)
 screen_name="nickpgeorge"
 
-def followers_df():
+def df():
     # items is how many followers you want in your df
     items = 3
 
@@ -50,12 +50,7 @@ def followers_df():
         name_list.append(name)
     
     # initiate dataframe
-    df = pd.DataFrame(follower_list)
-
-    # add columns
-    df['Id'] = ids_list
-    df['Name'] = name_list
-    df['DM_Sent?'] = 'No'
+    df = pd.DataFrame({"Screen_Name": follower_list, "Id": ids_list, "Name": name_list, "DM_Sent?": "No"})
 
     # print
     return df
@@ -63,7 +58,7 @@ def followers_df():
 # Send a DM!
 def dm():
     # type your message
-    text = "This is a test."
+    text = "This is an automated direct message."
 
     # my fake accounts
     send_text_list = [1126704586893316096, 1039712141283139584]
