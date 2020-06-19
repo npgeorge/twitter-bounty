@@ -2,15 +2,12 @@
 ## Mass DM your followers on Twitter, An App Deployed on Heroku
 
 ### Web App Landing Page
-<div style="text-align:center">
- 
-  ![Homepage1](https://github.com/npgeorge/twitter-bounty/blob/master/homepage1.png)
 
-  ![Homepage2](https://github.com/npgeorge/twitter-bounty/blob/master/homepage2.png)
-  
-  ![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/automated_message.png)
+![Homepage1](https://github.com/npgeorge/twitter-bounty/blob/master/homepage1.png)
 
-<img src="..." /></div>
+![Homepage2](https://github.com/npgeorge/twitter-bounty/blob/master/homepage2.png)
+
+![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/automated_message.PNG)
 
 # App Version
 
@@ -40,6 +37,6 @@ To send an automated message to your list of followers at a cadence of 87.6 seco
 
 ### Proof
 Sit back and let the app work for you.
-![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/automated_message.png)
+![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/automated_message.PNG)
 
 
