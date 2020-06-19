@@ -3,11 +3,11 @@
 
 ### Web App Landing Page
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage1.png" alt="drawing" width="800"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage1.png" alt="drawing" align="middle" width="800"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage2.png" alt="drawing" width="600"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage2.png" alt="drawing" align="middle" width="400"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="400"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" align="middle" width="350"/>
 
 # App Version
 
@@ -42,4 +42,4 @@ To send an automated message to your list of followers at a cadence of 87.6 seco
 ### Proof
 Sit back and let the app work for you.
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="400"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="350"/>
