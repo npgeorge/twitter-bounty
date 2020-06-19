@@ -5,7 +5,7 @@
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage1.png" alt="drawing" width="800"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage2.png" alt="drawing" width="800"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/homepage2.png" alt="drawing" width="600"/>
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="400"/>
 
@@ -30,11 +30,14 @@ If you are a developer, use this link for a templated guide to gathering followe
 Clone the repo. Open a python command line in the repo. Load python. Then run "import followers" to load the script.
 
 To see your data frame of followers, run "followers.df()"
+
 ![followers_dataframe](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/get_df_of_followers.png)
 
 To send an automated message to your list of followers at a cadence of 87.6 seconds (1000 followers a day), run "followers.dm()".
+
 ![direct_message](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/send_a_dm.png)
 
 ### Proof
 Sit back and let the app work for you.
+
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="400"/>
