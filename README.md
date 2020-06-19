@@ -25,7 +25,7 @@ If you are a developer, use this link for a templated guide to gathering followe
 ![twitter_permissions](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/twitter_permissions.png)
 
 #### Google Colab Link
-[Colab](https://colab.research.google.com/drive/1VSkcCeObI8kd7rmkqKOZCZlkNdirW26K?usp=sharing "Colab Twitter Mass DM Framework in Python")
+[Colab Twitter Mass DM Framework in Python](https://colab.research.google.com/drive/1VSkcCeObI8kd7rmkqKOZCZlkNdirW26K?usp=sharing "Colab Twitter Mass DM Framework in Python")
 
 ## Command Line
 
