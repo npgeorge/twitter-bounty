@@ -38,6 +38,6 @@ To send an automated message to your list of followers at a cadence of 87.6 seco
 
 ### Proof
 Sit back and let the app work for you.
-![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG =100x400)
+![automated_message](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG)
 
 
