@@ -17,6 +17,8 @@ pandas = "*"
 numpy = "*"
 twython = "*"
 flask-oauth = "*"
+flask-dance = "*"
+flask-login = "*"
 
 [requires]
 python_version = "3.8"

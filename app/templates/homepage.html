@@ -7,35 +7,92 @@
 </head>
 <body>
 
-    <h2> Welcome to Twitter DM's</h2>
-    <p>Use this web tool to build and maintain a database of your followers and send mass DM's.</p>
+    <h1>Welcome to Twitter DM's!</h1>
+    <p>Use this app to send mass DM's to your twitter followers within the limits of the Twitter API.</p>
 
-    <!-- form elements are magical -->
-    <!-- has the ability to send a POST request-->
+    <h3> Sign In! </h3>
+    <form action="login" method="POST">
+        <label> Consumer Key: </label>
+        <input type="text" name="consumer_key" placeholder="Key">
+        <br/>
+        <label>Consumer Secret: </label>
+        <input type="text" name="consumer_secret" placeholder="Key Secret">
+        <br/>
+        <button>Sign In</button>
 
-    <!-- The Submit button tells the action to send a POST request to the url-->
-    <form action="/keys" method="POST">
-        <label>Enter your Twitter API Key: </label>
-        <input type="text" name="name" placeholder="API Key">
-        <br/>
-        <label>Enter your Twitter API Key Secret: </label>
-        <input type="text" name="name" placeholder=" Key Secret">
-        <br/>
-        <label>Enter your Twitter API Token: </label>
-        <input type="text" name="name" placeholder="API Token">
-        <br/>
-        <label>Enter your Twitter API Token Secret: </label>
-        <input type="text" name="name" placeholder="Token Secret">
-        <br/>
-        <button>Submit</button>
     </form>
-    <form action="/keys" method="POST">
-    <br/>
-    <label>Enter the message you'd like to send to followers here:</label>
-    <input type="text" name="tweet" placeholder="say something">
-    <br/>
-    <button>Submit</button>
+
+    <h3>Mass Message Your Followers!</h3>
+    <h4>5000 Followers Load Time ~1 min 30 secs</h4>
+    <form action="/message" method="POST">
+        <label>Send 5000 followers a message! Database updates state changes per message sent.</label><br/>
+        <label>Twitter only allows 1000 DM's to be sent per day.</label><br/><br/>
+        <label>Your screen name: <input type="text" name="5000_message_sn" placeholder="screen_name"></label><br/>
+        <label>Sort By:</label>
+        <select name="5000_message_sort">
+            <option value="id">Id</option>
+            <option value="screen_name">Screen Name</option>
+            <option value="name">Name</option>
+            <option value="followers_count">Followers Count</option>
+            <option value="created_at">Created At</option>
+            <option value="friends_count">Friends Count</option>
+            <option value="statuses_count">Statuses Count</option>
+            <option value="verified">Verified</option>
+        </select>
+        <br/>
+        <label>Write your message here: </label>
+        <input type="text" name="5000_message" placeholder="Write a message!">
+        <button>Send Message</button>
     </form>
+
+    <h3>Sort and Export!</h3>
+    <h4>Last 5000 Followers Load Time ~1 min 30 sec</h4>
+    <form action="/5000_followers" method="POST">
+        <label>Export your last 5000 followers to a CSV file:</label>
+        <input type="text" name="5000_csv_sn" placeholder="screen_name">
+        <label>Sort By:</label>
+        <select name="5000_csv_param">
+          <option value="id">Id</option>
+          <option value="screen_name">Screen Name</option>
+          <option value="name">Name</option>
+          <option value="followers_count">Followers Count</option>
+          <option value="created_at">Created At</option>
+          <option value="friends_count">Friends Count</option>
+          <option value="statuses_count">Statuses Count</option>
+          <option value="verified">Verified</option>
+        </select>
+        <button>Export 5000 to CSV</button>
+    </form>
+
+<br/>
+    <h4>Last 10000 Followers Load Time ~3 mins</h4>
+    <form action="/10000_followers" method="POST">
+        <label>Export your last 10000 followers to a CSV file:</label>
+        <input type="text" name="10000_csv_sn" placeholder="screen_name">
+        <label>Sort By:</label>
+        <select name="10000_csv_param">
+            <option value="id">Id</option>
+            <option value="screen_name">Screen Name</option>
+            <option value="name">Name</option>
+            <option value="followers_count">Followers Count</option>
+            <option value="created_at">Created At</option>
+            <option value="friends_count">Friends Count</option>
+            <option value="statuses_count">Statuses Count</option>
+            <option value="verified">Verified</option>
+        </select>
+        <button>Export 10000 Followers to CSV</button>
+    </form>
+    <br/>
+    <h3>API Response</h3>
+    <h4>See the filtered dictionary response:</h4>
+    <form action="/get_followers" method="POST">
+        <label>Get a dictionary response of your followers:</label>
+        <input type="text" name="get_followers_dict" placeholder="username">
+        <button>Dictionary Response</button>
+    </form>
+    <br/>
+    <br/>
+    
 
 </body>
 </html>
