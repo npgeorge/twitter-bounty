@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mass DM</title>
+    <title>Rabble</title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,400i,500,700|Titillium+Web:600" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -18,7 +18,7 @@
                         <h1 class="m-0">
                             <a href="#">
 								<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-								    <title>Icosa</title>
+								    <title>Rabble</title>
 								    <defs>
 								        <linearGradient x1="0%" y1="0%" y2="100%" id="logo-a">
 								            <stop stop-color="#4353FF" offset="0%"/>
@@ -53,8 +53,13 @@
                 <div class="container">
                     <div class="hero-inner">
 						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0 is-revealing">Mass DM Your Twitter Followers</h1>
-	                        <p class="hero-paragraph is-revealing">Use this app to gather a database of your followers and Mass DM them within the Twitter API guidelines.</p>
+							<h1 class="hero-title mt-0 is-revealing">Welcome to Rabble!</h1>
+							<h3 class="hero-title mt-0 is-revealing">Gather the Masses &</h3>
+							<h3 class="hero-title mt-0 is-revealing">Monetize your Followers</h3>
+	                        <p class="hero-paragraph is-revealing">
+								Use this app to gather a database of your Twitter followers and mass DM them within the Twitter API guidelines.
+								Sort your follower database with 8 unique parameters. Export your followers to a CSV file.  
+							</p>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
 	                                <input class="input" type="email" name="email" placeholder="Twitter API Key...&hellip;">
@@ -73,23 +78,87 @@
 	                            </div>
 							</div>
 							<br/>
+							<br/>
+							<h4 class="feature-title m-0">Send IT! Mass Message Your Followers!</h4><br/>
+							<p class="text-sm mb-0">
+								Get started <i>now.</i> Choose a parameter to prioritize your followers.
+								Twitter only allows 1000 DM's to be sent per day. This app was built with that in mind.
+							</p>
+							<br/>
+							<!--Form action for sending first 5000 messages -->
+						<form action="/message" method="POST">
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
-	                                <input class="input" type="email" name="email" placeholder="Wrtie A Message...&hellip;">
+	                                <input class="input" type="text" name="5000_message_sn" placeholder="Enter Your Screen Name...&hellip;">
+								</div>
+							</div>
+							<br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+									<label>Sort By</label><br/>
+									<select class="button button-primary button-block" name="5000_message_sort" value="Sort By...&hellip;">
+										<option value="id">Id</option>
+										<option value="screen_name">Screen Name</option>
+										<option value="name">Name</option>
+										<option value="followers_count">Followers Count</option>
+										<option value="created_at">Created At</option>
+										<option value="friends_count">Friends Count</option>
+										<option value="statuses_count">Statuses Count</option>
+										<option value="verified">Verified</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+	                                <input class="input" type="text" name="5000_message" placeholder="Write A Message...&hellip;">
 								</div>
 							</div>
 							<br/>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control">
-	                                <a class="button button-primary button-block" href="#">Send Message</a>
+	                                <button class="button button-primary button-block" href="#">Send Message</button>
 	                            </div>
+							</div>
+							</form>
+							<br/><br/>
+
+							<h4 class="feature-title m-0">Sort & Export!</h4><br/>
+							<p class="text-sm mb-0">
+								Collect your most recent 5000 followers in a pre-sorted list, exported to a CSV file.
+								Load time is ~ 1 min 30 secs.
+							</p>
+							<br/>
+							<!--Form action for sending first 5000 messages -->
+						<form action="/5000_followers" method="POST">
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+	                                <input class="input" type="text" name="5000_csv_sn" placeholder="Enter Your Screen Name...&hellip;">
+								</div>
+							</div>
+							<br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+									<label>Sort By</label><br/>
+									<select class="button button-primary button-block" name="5000_csv_param" value="Sort By...&hellip;">
+										<option value="id">Id</option>
+										<option value="screen_name">Screen Name</option>
+										<option value="name">Name</option>
+										<option value="followers_count">Followers Count</option>
+										<option value="created_at">Created At</option>
+										<option value="friends_count">Friends Count</option>
+										<option value="statuses_count">Statuses Count</option>
+										<option value="verified">Verified</option>
+									</select>
+								</div>
 							</div>
 							<br/>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control">
-	                                <a class="button button-primary button-block" href="#">Export Followers CSV</a>
+	                                <button class="button button-primary button-block" href="#">Export 5000 Followers to CSV</button>
 	                            </div>
 							</div>
+						</form>
 						</div>
 						<div class="hero-illustration">
 							<div class="hero-bg">
