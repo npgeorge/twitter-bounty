@@ -88,10 +88,14 @@ def message_test():
     client = current_app.config["TWITTER_API_CLIENT"]
 
     screen_name = request.form['5000_message_sn']
+
+    pages = request.form['pages']
+
+    pages = int(pages)
     
     ids = []
     # change the pages parameter for more ids, each page is 5000 users
-    for page in tweepy.Cursor(client.followers_ids, screen_name=screen_name).pages(1):
+    for page in tweepy.Cursor(client.followers_ids, screen_name=screen_name).pages(pages):
         try:
             ids.extend(page)
             # check
@@ -199,19 +203,23 @@ def message_test():
 
 
 @my_routes.route("/5000_followers", methods=['POST'])
-def tester():
+def followers():
     client = current_app.config["TWITTER_API_CLIENT"]
 
     screen_name=request.form['5000_csv_sn']
+
+    pages = request.form['pages_followers']
+
+    pages = int(pages)
     
     ids = []
-    for page in tweepy.Cursor(client.followers_ids, screen_name=screen_name).pages(1):
+    for page in tweepy.Cursor(client.followers_ids, screen_name=screen_name).pages(pages):
         try:
             ids.extend(page)
-            # check
+            # check for terminal
             print(ids)
             # see size
-            print(len(ids))
+            print("Number of ID's gathered: ", len(ids))
             # to avoid rate limit
             time.sleep(60)
         except tweepy.RateLimitError:
