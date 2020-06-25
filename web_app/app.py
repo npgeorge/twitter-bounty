@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask, Blueprint, jsonify, request, render_template, current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from routes import my_routes
+from web_app.routes import my_routes
 from models import db, migrate, Followers #User, OAuth, 
 from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
 from services import twitter_api_client
