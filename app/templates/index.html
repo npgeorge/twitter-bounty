@@ -91,13 +91,39 @@
 						<form action="/message" method="POST">
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="5000_message_sn" placeholder="Enter Your Screen Name...&hellip;">
+	                                <input class="input" type="text" name="message_sn" placeholder="Enter Your Screen Name...&hellip;">
 								</div>
 							</div>
 							<br/>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
-									<label>Number of Followers to Send To:</label><br/>
+									<label>Sort By:</label><br/>
+									<select class="button button-primary button-block" name="message_sort" value="Sort By...&hellip;">
+										<option value="followers_count">Followers Count (High to Low)</option>
+										<option value="friends_count">Friends Count (High to Low)</option>
+										<option value="statuses_count">Statuses Count(High to Low)</option>
+										<option value="created_at">Created At (Most Recent First)</option>
+										<option value="verified">Verified (True to False)</option>
+										<option value="screen_name">Screen Name (Z to A, Numeric)</option>
+										<option value="name">Name (Z to A, Numeric)</option>
+										<option value="id">Id (Most Recent First)</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<label>Filter by Location:</label>
+							<input class="input" type="text" name="location_message" placeholder="New York, NY...&hellip;">
+							<br/><br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+									<label>Write a Message:</label>
+	                                <input class="input" type="text" name="message" placeholder="Sign up for my TED talk in New York...&hellip;">
+								</div>
+							</div>
+							<br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+									<label>Number of Followers to DM:</label><br/>
 									<select class="button button-primary button-block" name="pages" value="# of Followers...&hellip;">
 										<option value="1">5,0000</option>
 										<option value="2">10,000</option>
@@ -110,28 +136,6 @@
 										<option value="100">500,000</option>
 										<option value="">All</option>
 									</select>
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Sort By in Descending Order</label><br/>
-									<select class="button button-primary button-block" name="5000_message_sort" value="Sort By...&hellip;">
-										<option value="followers_count">Followers Count</option>
-										<option value="friends_count">Friends Count</option>
-										<option value="statuses_count">Statuses Count</option>
-										<option value="created_at">Created At</option>
-										<option value="verified">Verified</option>
-										<option value="screen_name">Screen Name</option>
-										<option value="name">Name</option>
-										<option value="id">Id</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="5000_message" placeholder="Write A Message...&hellip;">
 								</div>
 							</div>
 							<br/>
@@ -150,12 +154,32 @@
 							</p>
 							<br/>
 							<!--Form action for sending first 5000 messages -->
-						<form action="/5000_followers" method="POST">
+						<form action="/followers" method="POST">
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="5000_csv_sn" placeholder="Enter Your Screen Name...&hellip;">
+	                                <input class="input" type="text" name="csv_sn" placeholder="Enter Your Screen Name...&hellip;">
 								</div>
 							</div>
+							<br/>
+							<div class="hero-form field field-grouped is-revealing">
+	                            <div class="control control-expanded">
+									<label>Sort By:</label><br/>
+									<select class="button button-primary button-block" name="csv_param" value="Sort By...&hellip;">
+										<option value="followers_count">Followers Count (High to Low)</option>
+										<option value="friends_count">Friends Count (High to Low)</option>
+										<option value="statuses_count">Statuses Count(High to Low)</option>
+										<option value="created_at">Created At (Most Recent First)</option>
+										<option value="verified">Verified (True to False)</option>
+										<option value="screen_name">Screen Name (Z to A, Numeric)</option>
+										<option value="name">Name (Z to A, Numeric)</option>
+										<option value="id">Id (Most Recent First)</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<label>Filter by Location:</label>
+							<input class="input" type="text" name="location_param" placeholder="Location Here...&hellip;">
+							<br/>
 							<br/>
 							<div class="hero-form field field-grouped is-revealing">
 	                            <div class="control control-expanded">
@@ -171,22 +195,6 @@
 										<option value="40">200,000</option>
 										<option value="100">500,000</option>
 										<option value="">All</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Sort By</label><br/>
-									<select class="button button-primary button-block" name="5000_csv_param" value="Sort By...&hellip;">
-										<option value="followers_count">Followers Count</option>
-										<option value="friends_count">Friends Count</option>
-										<option value="statuses_count">Statuses Count</option>
-										<option value="created_at">Created At</option>
-										<option value="verified">Verified</option>
-										<option value="screen_name">Screen Name</option>
-										<option value="name">Name</option>
-										<option value="id">Id</option>
 									</select>
 								</div>
 							</div>

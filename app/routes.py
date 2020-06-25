@@ -87,7 +87,7 @@ def login():
 def message_test():
     client = current_app.config["TWITTER_API_CLIENT"]
 
-    screen_name = request.form['5000_message_sn']
+    screen_name = request.form['message_sn']
 
     pages = request.form['pages']
 
@@ -101,7 +101,7 @@ def message_test():
             # check
             print(ids)
             # see size
-            print(len(ids))
+            print("Number of ID's gathered: ", len(ids))
             # to avoid rate limit
             time.sleep(60)
         except tweepy.RateLimitError:
@@ -114,6 +114,7 @@ def message_test():
     try:
         # make batches of 100 ids to pass into, WORKS
         for i in range(0, len(ids), 100):
+            print("C")
             batch = ids[i:i+100]
             for follower in client.lookup_users(batch):
                 followers.append({
@@ -124,7 +125,8 @@ def message_test():
                     "created_at": follower.created_at,
                     "friends_count": follower.friends_count,
                     "statuses_count": follower.statuses_count,
-                    "verified": follower.verified
+                    "verified": follower.verified,
+                    "location": follower.location
                     })
     except tweepy.RateLimitError:
         print("Rate Limit Reached! Script will resume in 15 minutes.") 
@@ -140,13 +142,26 @@ def message_test():
     # check
     print(df)
     
-    # params
-    param = request.form["5000_message_sort"]
+    # params filter
+    param = request.form["message_sort"]
 
-    # sort by followers_count
-    sorted_df = df.sort_values(by=param, ascending=False)
-    # check
-    print("-----")
+    # grabbing user input location
+    location  = request.form['location_message']
+
+    # filtering by location
+    location_filter = (df['location'] == location)
+
+    # if user does not pass in location, filter by params only
+    # else filter by params and location filter
+    if(len(location) == 0):
+        print("----- SORTED DATAFRAME -----")
+        sorted_df = df.sort_values(by=param, ascending=False)
+    else :
+        print("----- LOCATION DF -----")
+        sorted_df = df.sort_values(by=param, ascending=False) 
+        sorted_df = sorted_df[location_filter]
+
+    print("----- SORTED DATAFRAME -----")
     print(sorted_df)
 
     # grab sorted id's
@@ -183,7 +198,7 @@ def message_test():
     #
     #
 
-    message = request.form['5000_message']
+    message = request.form['message']
     print('-----')
     print("Message sending to followers is...", '"', message,'"...')
 
@@ -202,11 +217,11 @@ def message_test():
     return render_template("message.html")
 
 
-@my_routes.route("/5000_followers", methods=['POST'])
+@my_routes.route("/followers", methods=['POST'])
 def followers():
     client = current_app.config["TWITTER_API_CLIENT"]
 
-    screen_name=request.form['5000_csv_sn']
+    screen_name=request.form['csv_sn']
 
     pages = request.form['pages_followers']
 
@@ -242,7 +257,8 @@ def followers():
                     "created_at": follower.created_at,
                     "friends_count": follower.friends_count,
                     "statuses_count": follower.statuses_count,
-                    "verified": follower.verified
+                    "verified": follower.verified,
+                    "location": follower.location
                     })
     except tweepy.RateLimitError:
         print("Rate Limit Reached! Script will resume in 15 minutes.") 
@@ -259,13 +275,21 @@ def followers():
     print(df)
     
     # params
-    param = request.form['5000_csv_param']
+    param = request.form['csv_param']
 
-    # sort by followers_count
-    sorted_df = df.sort_values(by=param, ascending=False)
 
-    # check
-    print("-----")
+    location  = request.form['location_param']
+
+    location_filter = (df['location'] == location)
+
+    if(len(location) == 0):
+        print("----- SORTED DATAFRAME -----")
+        sorted_df = df.sort_values(by=param, ascending=False)
+    else :
+        print("----- LOCATION DF -----")
+        sorted_df = df.sort_values(by=param, ascending=False) 
+        sorted_df = sorted_df[location_filter]
+    
     print(sorted_df)
 
     resp = make_response(sorted_df.to_csv())
