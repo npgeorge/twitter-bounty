@@ -19,6 +19,7 @@ twython = "*"
 flask-oauth = "*"
 flask-dance = "*"
 flask-login = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
