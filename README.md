@@ -5,9 +5,9 @@
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_1.png" alt="drawing" align="middle" width="1000"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_2_dm_v2.png" alt="drawing" align="middle" width="1000"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_2_dm_v3.png" alt="drawing" align="middle" width="1000"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_3_se_v3.png" alt="drawing" align="middle" width="1000"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_3_se_v4.png" alt="drawing" align="middle" width="1000"/>
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_4.png" alt="drawing" align="middle" width="1000"/>
 

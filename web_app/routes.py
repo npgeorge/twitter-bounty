@@ -10,8 +10,6 @@ import pandas as pd
 import time
 #from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
 
-load_dotenv()
-
 client = twitter_api_client()
 
 #
