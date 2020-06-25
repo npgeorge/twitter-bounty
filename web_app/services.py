@@ -18,5 +18,5 @@ def twitter_api_client():
     return client
 
 if __name__ == "__main__":
-
+    # this is the twitter api
     client = twitter_api_client()

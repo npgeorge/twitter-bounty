@@ -5,10 +5,14 @@ import webbrowser
 import pickle               
 from pprint import pprint
 from flask import Flask, redirect, url_for
-from web_app.followers import twitter_api_client
+from web_app.services import twitter_api_client
 import pandas as pd
 import time
 #from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
+
+load_dotenv()
+
+client = twitter_api_client()
 
 #
 # ROUTING
