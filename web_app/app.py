@@ -18,7 +18,7 @@ def create_app():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    app.config["TWITTER_API_CLIENT"] = twitter_api_client()
+    #app.config["TWITTER_API_CLIENT"] = twitter_api_client()
 
     db.init_app(app)
     migrate.init_app(app, db)
