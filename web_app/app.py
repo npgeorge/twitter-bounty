@@ -4,7 +4,7 @@ from flask import Flask, Blueprint, jsonify, request, render_template, current_a
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from web_app.routes import my_routes
-from models import db, migrate, Followers #User, OAuth, 
+from web_app.models import db, migrate, Followers #User, OAuth, 
 from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
 from services import twitter_api_client
 

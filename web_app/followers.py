@@ -9,8 +9,6 @@ from flask import Blueprint, jsonify, request, render_template, current_app, Res
 
 load_dotenv()
 
-#----- this model works for followers ---
-
 TWITTER_API_KEY = os.getenv("TWITTER_API_KEY", default="OOPS")
 TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET", default="OOPS")
 TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN", default="OOPS")
