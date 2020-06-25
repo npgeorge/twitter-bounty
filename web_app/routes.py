@@ -1,12 +1,11 @@
 from flask import Blueprint, jsonify, request, render_template, current_app, Response, make_response
-
-from models import Followers
+from web_app.models import Followers
 import tweepy
 import webbrowser
 import pickle               
 from pprint import pprint
 from flask import Flask, redirect, url_for
-from followers import twitter_api_client
+from web_app.followers import twitter_api_client
 import pandas as pd
 import time
 #from flask_dance.contrib.twitter import make_twitter_blueprint, twitter

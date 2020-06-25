@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from web_app.routes import my_routes
 from web_app.models import db, migrate, Followers #User, OAuth, 
 from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
-from services import twitter_api_client
+from web_app.services import twitter_api_client
 
 load_dotenv()
 
