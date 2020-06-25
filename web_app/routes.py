@@ -420,3 +420,6 @@ def get_twitter_user():
     print(ids_list)
 
     return jsonify(followers_list)
+
+if __name__ == "__main__":
+    app.run()
