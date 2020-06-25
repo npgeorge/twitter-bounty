@@ -39,7 +39,9 @@ To see your data frame of followers, run "followers.df()"
 
 *****UPDATE*****
 
-### Proof
-Sit back and let the app work for you.
+Heroku App:
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" width="350"/>
+Use this command to create or update a requirements file from your pip files.
+
+'pipenv lock -r > requirements.txt'
+
