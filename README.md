@@ -50,3 +50,7 @@ Users need to ensure they have "Read, write, and Direct Messages" enabled on the
 
 ### *Note*
 Due to heroku timeout limits at 30 seconds, the GIFs above were locally hosted. 
+
+
+### @balajis Twitter Bounty Submission
+![Twitter Bounty Submission](https://github.com/balajis/twitter-export/issues/1)
