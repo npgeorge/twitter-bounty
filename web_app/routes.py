@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, request, render_template, current_app, Response, make_response
-from web_app.models import Followers
+from flask import Blueprint, jsonify, request, render_template, current_app, Response, make_response, session, redirect, url_for, flash
+from web_app.models import Followers, User, db
 import tweepy
 import webbrowser
 import pickle               
@@ -8,85 +8,72 @@ from flask import Flask, redirect, url_for
 from web_app.services import twitter_api_client
 import pandas as pd
 import time
-#from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
+from flask_dance.contrib.twitter import make_twitter_blueprint, twitter
+import os
 
+
+# assigned twice because of sign in structure
 client = twitter_api_client()
 
-#
-# ROUTING
-#
+# option to use while testing
+#app = Flask(__name__)
 
 my_routes = Blueprint("my_routes", __name__)
 
-# method decorators
-# above our normal looking function, it specifies a route or url path
-# each def needs to be unique for this to work
+#
+#
+# BEGINNING OF SIGN IN
+#
+#
+
+# placed in app.py
+#app.secret_key = os.environ.get("FLASK_SECRET_KEY", "supersekrit")
+#app.config["TWITTER_OAUTH_CLIENT_KEY"] = TW_KEY
+#app.config["TWITTER_OAUTH_CLIENT_SECRET"] = TW_SECRET
+#twitter_bp = make_twitter_blueprint()
+#app.register_blueprint(twitter_bp, url_prefix="/login")
+
+# placed in services
+#auth = tweepy.OAuthHandler(TW_KEY, TW_SECRET)
+#auth.set_access_token(TW_TOKEN, TW_TOKEN_SECRET)
+#client = tweepy.API(auth)
+
+# sign in
 @my_routes.route("/")
 def homepage():
-    return render_template("homepage.html")
+    return render_template("sign_in.html")
+
+# twitter authentication
+@my_routes.route("/twitter")
+def twitter_login():
+    if not twitter.authorized:
+        return redirect(url_for("twitter.login"))
+    resp = twitter.get("account/verify_credentials.json")
+    assert resp.ok
+    return "You are @{screen_name} on Twitter".format(screen_name=resp.json()["screen_name"])
+    #return render_template("index.html")
 
 # landing page route
 @my_routes.route("/index")
 def index():
     return render_template("index.html")
 
-
+@my_routes.route("/sign_in")
+def sign_in():
+    return render_template("sign_in.html")
 #
-#
-#
-# ---- ADDED & OPTIMIZED -----
-#
-#
+# END OF SIGN IN
 #
 
-# login
-# almost works, needs correct callback, needs work
-@my_routes.route("/login", methods=["POST"])
-def login():
-
-    KEY = request.form['consumer_key']
-    KEY_SECRET = request.form['consumer_secret']
-
-    twitter = OAuth1Service(
-    name='twitter',
-    consumer_key=KEY,
-    consumer_secret=KEY_SECRET,
-    request_token_url='https://api.twitter.com/oauth/request_token',
-    access_token_url='https://api.twitter.com/oauth/access_token',
-    authorize_url='https://api.twitter.com/oauth/authorize',
-    base_url = 'https://api.twitter.com/1/')
-
-    request_token, request_token_secret = twitter.get_request_token()
-
-    authorize_url = twitter.get_authorize_url(request_token)
-
-    print('Visit this URL in your browser: ', authorize_url)
-    open(authorize_url)
-    verifier = raw_input('Enter oauth_verifier from browser: ')
-
-    session = twitter.get_auth_session(
-        request_token,
-        request_token_secret,
-        method='POST',
-        data={'oauth_verifier': verifier})
-
-    params = {
-        # Include retweets
-        'include_rts': 1,
-        # 10 tweets
-        'count': 10}
-
-    resp = session.get('statuses/home_timeline.json', params=params)
-
-    for i, tweet in enumerate(resp.json(), 1):
-        handle = tweet['user']['screen_name'].encode('utf-8')
-        text = tweet['text'].encode('utf-8')
-        print('{0}. @{1} - {2}'.format(i, handle, text))
+#
+# FUNCTIONALITY
+#
 
 # messaging
 @my_routes.route("/message", methods=['POST', 'GET'])
 def message_test():
-    client = current_app.config["TWITTER_API_CLIENT"]
+    # called globally
+    #client = current_app.config["TWITTER_API_CLIENT"]
 
     screen_name = request.form['message_sn']
 
@@ -129,9 +116,20 @@ def message_test():
                     "verified": follower.verified,
                     "location": follower.location
                     })
+                
+                db.session.add(Followers())
     except tweepy.RateLimitError:
         print("Rate Limit Reached! Script will resume in 15 minutes.") 
         time.sleep(60*15)
+
+    if "name" in request.form:
+        name = request.form["name"]
+        print(name)
+        db.session.add(User(name=name))
+        db.session.commit()
+        return jsonify({"message": "CREATED OK", "name": name})
+    else:
+        return jsonify({"message": "OOPS PLEASE SPECIFY A NAME!"})
     
     # check, WORKS
     print(followers)
@@ -217,10 +215,10 @@ def message_test():
 
     return render_template("message.html")
 
-
+# exporting followers to CSV
 @my_routes.route("/followers", methods=['POST'])
 def followers():
-    client = current_app.config["TWITTER_API_CLIENT"]
+    #client = current_app.config["TWITTER_API_CLIENT"]
 
     screen_name=request.form['csv_sn']
 
@@ -298,12 +296,13 @@ def followers():
     resp.headers["Content-Type"] = "text/csv"
     return resp
 
-# exporting 10,000 followers database to csv
-@my_routes.route("/10000_followers", methods=['POST'])
-def test_ten_thou():
-    client = current_app.config["TWITTER_API_CLIENT"]
 
-    screen_name = request.form['10000_csv_sn']
+
+
+@my_routes.route("/to_db", methods=['POST', 'GET'])
+def to_db():
+    #client = current_app.config["TWITTER_API_CLIENT"]
+    screen_name = 'nickpgeorge'
     
     ids = []
     # change the pages parameter for more ids, each page is 5000 users
@@ -324,48 +323,57 @@ def test_ten_thou():
     followers = []
 
     try:
-        # make batches of 100 ids to pass into, WORKS
+        # make batches of 100 ids to pass into
         for i in range(0, len(ids), 100):
             batch = ids[i:i+100]
             for follower in client.lookup_users(batch):
+                ids = follower.id
+                screen_name = follower.screen_name
+                name = follower.name
+                followers_count = follower.followers_count
+                created_at = follower.created_at
+                friends_count = follower.friends_count
+                statuses_count = follower.statuses_count
+                verified = follower.verified
+                location = follower.location
+
                 followers.append({
-                    "id": follower.id, 
-                    "screen_name": follower.screen_name, 
-                    "name": follower.name,
-                    "followers_count": follower.followers_count,
-                    "created_at": follower.created_at,
-                    "friends_count": follower.friends_count,
-                    "statuses_count": follower.statuses_count,
-                    "verified": follower.verified
+                    "id": ids, 
+                    "screen_name": screen_name, 
+                    "name": name,
+                    "followers_count": followers_count,
+                    "created_at": created_at,
+                    "friends_count": friends_count,
+                    "statuses_count": statuses_count,
+                    "verified": verified, 
+                    "location": location
                     })
+
+                db.session.add(Followers(id=ids))
+                db.session.add(Followers(screen_name=screen_name))
+                db.session.add(Followers(name=name))
+                db.session.add(Followers(followers_count=followers_count))
+                db.session.add(Followers(created_at=created_at))
+                db.session.add(Followers(friends_count=friends_count))
+                db.session.add(Followers(statuses_count=statuses_count))
+                db.session.add(Followers(verified=verified))
+                db.session.add(Followers(location=location))
+                db.session.commit()
+    
     except tweepy.RateLimitError:
         print("Rate Limit Reached! Script will resume in 15 minutes.") 
         time.sleep(60*15)
     
-    # check
-    print(followers)
-    print(type(followers))
+    # passing into database help
+    #
+    #if "name" in request.form:
+    #name = request.form["name"]
+    #print(name)
+    #db.session.add(User(name=name))
+    #
+    #
 
-    # creating dataframe
-    df = pd.DataFrame.from_dict(followers)
-
-    # check
-    print(df)
-    
-    # params
-    param = request.form['10000_csv_param']
-
-    # sort by followers_count
-    sorted_df = df.sort_values(by=param, ascending=False)
-
-    # check
-    print("-----")
-    print(sorted_df)
-
-    resp = make_response(sorted_df.to_csv())
-    resp.headers["Content-Disposition"] = "attachment; filename=followers_db.csv"
-    resp.headers["Content-Type"] = "text/csv"
-    return resp
+    return render_template("message.html")
 
 
 
@@ -381,7 +389,7 @@ def get_twitter_user():
     
     #client = twitter_api_client()
     
-    client = current_app.config["TWITTER_API_CLIENT"]
+    #client = current_app.config["TWITTER_API_CLIENT"]
     
     # trying to increase count with pages
     try:

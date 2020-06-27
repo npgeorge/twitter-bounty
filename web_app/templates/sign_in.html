@@ -58,136 +58,17 @@
 							<h3 class="hero-title mt-0 is-revealing">Monetize Your Followers</h3>
 	                        <p class="hero-paragraph is-revealing">
 								Use this app to sort, gather, and send a message to a database of your Twitter followers.
-								Sort your follower database with 8 unique parameters. Export your followers to a CSV file.  
-							</p>
-							<br/>
-							<h4 class="feature-title m-0">Send IT! Mass Message Your Followers!</h4><br/>
-							<p class="text-sm mb-0">
-								Get started <i>now.</i> Choose how many followers you'd like to reach. Choose a parameter to prioritize them by.
-								Filter by location if you so choose.
-								Write a message and inform your twitterverse followers. Twitter only allows 1000 DM's to be sent per day. 
-								With large amounts of followers, this can take a while. Feel free to set it and forget it. 
-								This app was designed on a timer with Twitter Rate Limits built in.
-							</p>
-							<br/>
-							<!--Form action for sending first 5000 messages -->
-						<form action="/message" method="POST">
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="message_sn" placeholder="Enter Your Screen Name...&hellip;">
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Sort By:</label><br/>
-									<select class="button button-primary button-block" name="message_sort" value="Sort By...&hellip;">
-										<option value="followers_count">Followers Count (High to Low)</option>
-										<option value="friends_count">Friends Count (High to Low)</option>
-										<option value="statuses_count">Statuses Count(High to Low)</option>
-										<option value="created_at">Created At (Most Recent First)</option>
-										<option value="verified">Verified (True to False)</option>
-										<option value="screen_name">Screen Name (Z to A, Numeric)</option>
-										<option value="name">Name (Z to A, Numeric)</option>
-										<option value="id">Id (Most Recent First)</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<label>Filter by Location (Optional):</label>
-							<input class="input" type="text" name="location_message" placeholder="New York, NY...&hellip;">
-							<br/><br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Write a Message:</label>
-	                                <input class="input" type="text" name="message" placeholder="Sign up for my TED talk in New York...&hellip;">
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Number of Followers to DM:</label><br/>
-									<select class="button button-primary button-block" name="pages" value="# of Followers...&hellip;">
-										<option value="1">5,000</option>
-										<option value="2">10,000</option>
-										<option value="3">15,000</option>
-										<option value="4">20,000</option>
-										<option value="6">30,000</option>
-										<option value="10">50,000</option>
-										<option value="20">100,000</option>
-										<option value="40">200,000</option>
-										<option value="100">500,000</option>
-										<option value=" ">All</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control">
-	                                <button class="button button-primary button-block" href="#">Send Message</button>
-	                            </div>
-							</div>
-							</form>
-							<br/><br/>
-
-							<h4 class="feature-title m-0">Sort & Export!</h4><br/>
-							<p class="text-sm mb-0">
-								Export your followers from a pre-sorted database to a CSV file.
-								Load time is approximately ~ 1 min 30 secs per every 5000 followers, patience is key!
-							</p>
-							<br/>
-							<!--Form action for sending first 5000 messages -->
-						<form action="/followers" method="POST">
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-	                                <input class="input" type="text" name="csv_sn" placeholder="Enter Your Screen Name...&hellip;">
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Sort By:</label><br/>
-									<select class="button button-primary button-block" name="csv_param" value="Sort By...&hellip;">
-										<option value="followers_count">Followers Count (High to Low)</option>
-										<option value="friends_count">Friends Count (High to Low)</option>
-										<option value="statuses_count">Statuses Count(High to Low)</option>
-										<option value="created_at">Created At (Most Recent First)</option>
-										<option value="verified">Verified (True to False)</option>
-										<option value="screen_name">Screen Name (Z to A, Numeric)</option>
-										<option value="name">Name (Z to A, Numeric)</option>
-										<option value="id">Id (Most Recent First)</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<label>Filter by Location (Optional):</label>
-							<input class="input" type="text" name="location_param" placeholder="New York, NY...&hellip;">
-							<br/>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control control-expanded">
-									<label>Number of Followers to Export:</label><br/>
-									<select class="button button-primary button-block" name="pages_followers" value="# of Followers...&hellip;">
-										<option value="1">5,000</option>
-										<option value="2">10,000</option>
-										<option value="3">15,000</option>
-										<option value="4">20,000</option>
-										<option value="6">30,000</option>
-										<option value="10">50,000</option>
-										<option value="20">100,000</option>
-										<option value="40">200,000</option>
-										<option value="100">500,000</option>
-										<option value=" ">All</option>
-									</select>
-								</div>
-							</div>
-							<br/>
-							<div class="hero-form field field-grouped is-revealing">
-	                            <div class="control">
-	                                <button class="button button-primary button-block" href="#">Export Followers to CSV</button>
-	                            </div>
-							</div>
-						</form>
+                                Sort your follower database with 8 unique parameters. Export your followers to a CSV file.
+                                Giving a talk in NYC? Send a DM to your most influential followers in NYC and let them spread the word.   
+                            </p>
+                        <br/>
+                        <form action="/twitter" method="GET">
+                            <button class="button button-primary button-block">Twitter Sign In</button>
+                        </form>
+                        <br/>
+                        <form action="/index" method="GET">
+                            <button class="button button-primary button-block">Go to Home Page</button>
+                        </form>
 						</div>
 						<div class="hero-illustration">
 							<div class="hero-bg">
