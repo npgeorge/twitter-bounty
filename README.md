@@ -29,11 +29,19 @@
 ## How it Works
 
 Use this app to sort, gather, and send a message to a database of your Twitter followers.
-Sort your follower database with 8 unique parameters. Export your followers to a CSV file.  
+Sort your follower database with 8 unique parameters. Export your followers to a CSV file. 
 
+### Mass Messaging
+Choose how many followers you'd like to reach. Choose a parameter to prioritize them by.
+Filter by location if you so choose. Write a message and inform your twitterverse followers. 
+Twitter only allows 1000 DM's to be sent per day.With large amounts of followers, this can take a while. 
+Feel free to set it and forget it. This app was designed on a timer with Twitter Rate Limits built in.
 
+### Export to CSV
+Export your followers from a pre-sorted database to a CSV file.
+Load time is approximately ~ 1 min 30 secs per every 5000 followers, patience is key!
 
-## Developer Version - Google Colab
+## User Guidelines
 
 Users need to ensure they have "Read, write, and Direct Messages" enabled on their app tokens.
 [Twitter Apps](https://developer.twitter.com/en/apps "Twitter Apps")
