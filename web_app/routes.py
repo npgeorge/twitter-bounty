@@ -101,8 +101,8 @@ def message_test():
 
     try:
         # make batches of 100 ids to pass into, WORKS
+        print("Compiling ID's for dataframe....")
         for i in range(0, len(ids), 100):
-            print("C")
             batch = ids[i:i+100]
             for follower in client.lookup_users(batch):
                 followers.append({
@@ -122,14 +122,15 @@ def message_test():
         print("Rate Limit Reached! Script will resume in 15 minutes.") 
         time.sleep(60*15)
 
-    if "name" in request.form:
-        name = request.form["name"]
-        print(name)
-        db.session.add(User(name=name))
-        db.session.commit()
-        return jsonify({"message": "CREATED OK", "name": name})
-    else:
-        return jsonify({"message": "OOPS PLEASE SPECIFY A NAME!"})
+    # for hooking to database
+    #if "id" in followers:
+    #    ids = followers.id
+    #    print(ids)
+    #    db.session.add(Followers(id=ids))
+    #    db.session.commit()
+    #    return jsonify({"message": "CREATED OK", "id": ids})
+    #else:
+    #    return jsonify({"message": "OOPS PLEASE SPECIFY A NAME!"})
     
     # check, WORKS
     print(followers)
@@ -160,7 +161,6 @@ def message_test():
         sorted_df = df.sort_values(by=param, ascending=False) 
         sorted_df = sorted_df[location_filter]
 
-    print("----- SORTED DATAFRAME -----")
     print(sorted_df)
 
     # grab sorted id's
@@ -205,7 +205,7 @@ def message_test():
         # time function, 1 message every 87 seconds is ~1000 per day, twitter limit
         # run throughout the day or send 1000 all at once, you choose
         # (60 secs * 60 mins * 24 hours) / 1000 messages = 86.7 seconds
-        time.sleep(86.7)
+        time.sleep(1)
         if client.send_direct_message(row.Id, message):
             df_tester.loc[df_tester.DM_Sent == 'No', 'DM_Sent'] = 'Yes'
     
