@@ -23,11 +23,13 @@
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/export_new_york.gif" alt="drawing" align="middle" width="800"/>
 
 ## Link to App
-[Rabble](https://rabble-twitter.herokuapp.com/ "Rabble")
+[Rabble: A Twitter Application for Mass Messaging your Followers](https://rabble-twitter.herokuapp.com/ "Rabble")
 
 
 ## How it Works
 
+Use this app to sort, gather, and send a message to a database of your Twitter followers.
+Sort your follower database with 8 unique parameters. Export your followers to a CSV file.  
 
 
 
