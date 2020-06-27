@@ -48,3 +48,5 @@ Users need to ensure they have "Read, write, and Direct Messages" enabled on the
 
 ![twitter_permissions](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/twitter_permissions.png)
 
+### *Note*
+Due to heroku timeout limits at 30 seconds, the GIFs above were locally hosted. 
