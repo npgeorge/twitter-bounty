@@ -6,11 +6,11 @@
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/login.gif" alt="drawing" align="middle" width="800"/>
 
-### Send a Message to your Followers
+### Mass Message your Followers
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/message_proof.gif" alt="drawing" align="middle" width="800"/>
 
-### Send Mass Messages to a Pre-Sorted Group
+### Prioritize Mass Messaging using Pre-Sorted Groups
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/send_message.gif" alt="drawing" align="middle" width="800"/>
 
@@ -34,12 +34,12 @@ Sort your follower database with 8 unique parameters. Export your followers to a
 ### Mass Messaging
 Choose how many followers you'd like to reach. Choose a parameter to prioritize them by.
 Filter by location if you so choose. Write a message and inform your twitterverse followers. 
-Twitter only allows 1000 DM's to be sent per day.With large amounts of followers, this can take a while. 
+Twitter only allows 1000 DM's to be sent per day. With large amounts of followers, this can take a while. 
 Feel free to set it and forget it. This app was designed on a timer with Twitter Rate Limits built in.
 
 ### Export to CSV
 Export your followers from a pre-sorted database to a CSV file.
-Load time is approximately ~ 1 min 30 secs per every 5000 followers, patience is key!
+Load time is approximately 90 seconds per 5000 followers, patience is key!
 
 ## User Guidelines
 
