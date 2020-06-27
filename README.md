@@ -2,27 +2,27 @@
 
 ## Rabble: A Twitter Application for Mass Messaging your Followers
 
-#### Login with your Username
+### Login with your Username
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/login.gif" alt="drawing" align="middle" width="800"/>
 
-#### Send a Message to your Followers
+### Send a Message to your Followers
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/message_proof.gif" alt="drawing" align="middle" width="800"/>
 
-#### Send Mass Messages to a Pre-Sorted Group
+### Send Mass Messages to a Pre-Sorted Group
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/send_message.gif" alt="drawing" align="middle" width="800"/>
 
-#### Sort By Location to Target Specific Followers
+### Sort By Location to Target Specific Followers
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/sort_by_location.gif" alt="drawing" align="middle" width="800"/>
 
-#### Export your Followers to a CSV File
+### Export your Followers to a CSV File
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/export_new_york.gif" alt="drawing" align="middle" width="800"/>
 
-# Link to App
+## Link to App
 [Rabble](https://rabble-twitter.herokuapp.com/ "Rabble")
 
 
