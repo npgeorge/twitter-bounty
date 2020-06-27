@@ -2,7 +2,7 @@
 
 ## Rabble: A Twitter Application for Mass Messaging your Followers
 
-### Login with your Username
+### Login with your Twitter Account
 
 <img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/login.gif" alt="drawing" align="middle" width="800"/>
 
