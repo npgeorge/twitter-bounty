@@ -1,47 +1,40 @@
 # Twitter Bounty
-## Mass DM your followers on Twitter, An App Deployed on Heroku
 
-### Web App Landing Page
+## Rabble: A Twitter Application for Mass Messaging your Followers
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_1.png" alt="drawing" align="middle" width="1000"/>
+##### Login with your Username
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_2_dm_v3.png" alt="drawing" align="middle" width="1000"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/login.gif" alt="drawing" align="middle" width="1000"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_3_se_v4.png" alt="drawing" align="middle" width="1000"/>
+##### Send a Message to your Followers
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/landing_4.png" alt="drawing" align="middle" width="1000"/>
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/message_proof.gif" alt="drawing" align="middle" width="1000"/>
 
-<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/automated_message.PNG" alt="drawing" align="middle" width="350"/>
+##### Send Mass Messages to a Pre-Sorted Group
 
-# App Version
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/send_message.gif" alt="drawing" align="middle" width="1000"/>
 
-Flask App
+##### Sort By Location to Target Specific Followers
 
-In progress. Add link to heroku app here. 
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/sort_by_location.gif" alt="drawing" align="middle" width="1000"/>
+
+##### Export your Followers to a CSV File
+
+<img src="https://github.com/npgeorge/twitter-bounty/blob/master/images_github/export_new_york.gif" alt="drawing" align="middle" width="1000"/>
+
+# Link to App
+[Rabble](https://rabble-twitter.herokuapp.com/ "Rabble")
+
 
 ## How it Works
 
-This app allows anyone to load a dataframe of their followers and DM them within the limits of the Twitter API. All you need are a Twitter account and developer keys and tokens.
+
+
 
 ## Developer Version - Google Colab
 
-If you are a developer, use this link for a templated guide to gathering followers and sending DM's after sorting. Developers need to ensure they have "Read, write, and Direct Messages" enabled on their app tokens.
+Users need to ensure they have "Read, write, and Direct Messages" enabled on their app tokens.
+[Twitter Apps](https://developer.twitter.com/en/apps "Twitter Apps")
+
 ![twitter_permissions](https://github.com/npgeorge/twitter-bounty/blob/master/images_github/twitter_permissions.png)
-
-#### Google Colab Link
-[Colab Twitter Mass DM Framework in Python](https://colab.research.google.com/drive/1VSkcCeObI8kd7rmkqKOZCZlkNdirW26K?usp=sharing "Colab Twitter Mass DM Framework in Python")
-
-## Command Line
-
-Clone the repo. Open a python command line in the repo. Load python. Then run "import followers" to load the script.
-
-To see your data frame of followers, run "followers.df()"
-
-*****UPDATE*****
-
-Heroku App:
-
-Use this command to create or update a requirements file from your pip files.
-
-'pipenv lock -r > requirements.txt'
 
