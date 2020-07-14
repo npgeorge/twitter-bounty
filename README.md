@@ -55,3 +55,6 @@ Due to heroku timeout limits at 30 seconds, the GIFs above were locally hosted.
 ## Competition
 ### @balajis Twitter Bounty Submission
 [Twitter Bounty Submission](https://github.com/balajis/twitter-export/issues/1)
+
+
+##### [Created by Nick George](https://nickg.webflow.io/)
